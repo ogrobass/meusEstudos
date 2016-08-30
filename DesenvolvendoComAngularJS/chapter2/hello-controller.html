@@ -4,15 +4,19 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 </head>
-<body ng-controller="MainCtrl">
-	<h1>Helo {{1 + 1}}nd time AngularJS</h1>
+<body ng-controller="MainCtrl as ctrl">
+	{{ctrl.helloMsg}} AngularJS
+
+	<br>
+
+	{{ctrl.goodbyMsg}} AngularJS 
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.js"></script>
 <script>
 	angular.module('notesApp', [])
 		   .controller('MainCtrl', [function(){
-		   		//O codigo especifico do controlador deve ser inserido aqui
-		   		console.log("MainCtrl has ben created");
+		   		this.helloMsg = 'Hello!';
+		   		var goodbyMsg = 'Goodbye!';
 		   }]);
 </script>
 </body>
