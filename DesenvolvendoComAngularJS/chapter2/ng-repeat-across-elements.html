@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="notesApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Notes App</title>
+
+<style>
+	[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+		display: none !important;
+	}
+	
+</style>	
+</head>
+<body ng-controller="MainCtrl as ctrl">
+
+	<table class="ng-cloak">
+		<tr ng-repeat-start="note in ctrl.notes">
+			<td>{{note.label}}</td>
+		</tr>
+
+		<tr ng-repeat-end>
+			<td>{{note.done}}</td>
+		</tr>
+	</table>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.js"></script>
+	<script>
+
+	angular.module('notesApp', [])
+		.controller('MainCtrl', [function() {
+			var self = this;
+
+			self.notes = [
+				{id: 1, label: 'First Note', done: false},
+				{id: 2, label: 'Second Note', done: false},
+				{id: 3, label: 'Finished Third Note', done: true}
+			];
+
+		}]);
+
+	</script>
+</body>
+</html>
