@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Find Date</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function findDate() {
+
+   var regExp = /:\D*\s\d+\s\d+/;
+   var str = "This is a date: March 12 2009";
+   var resultString = str.match(regExp);
+   alert("Date" + resultString);
+
+}
+//]]>
+</script>
+</head>
+<body onload="findDate()">
+<p>Some page content</p>
+</body>
+</html>

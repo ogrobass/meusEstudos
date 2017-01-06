@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Number methods</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function numbers() {
+
+   // Number  methods
+   var newNumber = new Number(34.8896);
+
+   document.writeln(newNumber.toExponential(3) + "<br />");
+   document.writeln(newNumber.toPrecision(3) + "<br />");
+   document.writeln(newNumber.toFixed(6) + "<br />");
+
+   var newValue = newNumber.valueOf();
+
+   document.writeln(newValue.toString(2) + "<br />");
+   document.writeln(newValue.toString(8) + "<br />");
+   document.writeln(newValue.toString(10) + "<br />");
+   document.writeln(newValue.toString(16) + "<br />");
+}
+//]]>
+</script>
+</head>
+<body onload="numbers()">
+<p>Some page content</p>
+</body>
+</html>

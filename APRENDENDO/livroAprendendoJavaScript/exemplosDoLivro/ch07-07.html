@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Capture/Bubble</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function clickMe(evnt) {
+  var eventTarget = evnt.target ? evnt.target : evnt.srcElement;
+  alert(eventTarget + " " + evnt.type);
+  var canBeCanceled = evnt.cancelable ? evnt.cancelable : "NA";
+  alert("Can be canceled? " + canBeCanceled);
+  var bubbleEvent = evnt.bubbles ? evnt.bubbles : "NA";
+  alert("Bubbling? " + bubbleEvent);
+  var theTime = evnt.timeStamp ? evnt.timeStamp : "NA";
+  alert(theTime);
+}
+
+window.onload=setup;
+window.onunload=cleanup;
+
+function setup(evnt) {
+   var evtObject = document.getElementById("clickme");
+
+   // test for object model
+   if (evtObject.addEventListener) {
+      document.addEventListener("click",clickMe,false);
+   } else if (evtObject.attachEvent) {
+      evtObject.attachEvent("onclick", clickMe);
+   } else if (evtObject.onclick) {
+      evtObject.onclick=clickMe;
+   }
+}
+
+// cleanup
+function cleanup() {
+   var evtObject = document.getElementById("clickme");
+   if (evtObject.detachEvent) {
+       evtObject.detachEvent("onclick",clickMe);
+   }
+}
+
+//]]>
+</script>
+</head>
+<body>
+<div id="clickme" style="background-color: #ff0; width: 200px; height: 200px; padding: 20px">
+<p>Click Me</p>
+</div>
+</body>
+</html>

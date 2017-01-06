@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>object detection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<style type="text/css">
+div {
+        position: absolute;
+        top: 30px;
+        left: 50px;
+    }
+#div2 {
+       opacity: 0.0; filter: alpha(opacity=0);
+}
+#div1 img {
+filter:
+progid:DXImageTransform.Microsoft.AlphaImageLoader(src=fig0902.png,
+sizingMethod='scale');
+}
+
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+window.onload=function() {
+
+  var divElement = document.getElementById("div1");
+   alert(typeof(divElement.style.textShadow));
+   divElement.style.textShadow="#cccccc 2px 2px 2px";
+}
+
+//]]>
+</script>
+</head>
+<body>
+<h3 id="div1">
+Test
+</h3>
+</body>
+</html>

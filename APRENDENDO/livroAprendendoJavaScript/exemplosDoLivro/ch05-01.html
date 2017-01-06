@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Pass Me</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function alterArgs(strLiteral, aryObject) {
+   
+   // overwrite original string
+   strLiteral = "Override";
+   aryObject[1] = "2";
+   aryObject[aryObject.length] = "three";
+}
+
+function testParams() {
+   var str = "Original Literal";
+   var ary = new Array("one","two");
+
+   document.writeln("string literal is " + str + "<br />");
+   document.writeln("Array object is " + ary + "<br /><br />");
+
+   alterArgs(str,ary);
+
+   document.writeln("string literal is " + str + "<br />");
+   document.writeln("Array object is " + ary + "<br /><br />");
+
+}
+
+//]]>
+</script>
+</head>
+<body onload="testParams();">
+<p>Some page content</p>
+</body>
+</html>

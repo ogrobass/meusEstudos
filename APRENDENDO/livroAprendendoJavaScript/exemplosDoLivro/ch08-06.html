@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Text Fields</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function catchEvent(eventObj, event, eventHandler) {
+   if (eventObj.addEventListener) {
+      eventObj.addEventListener(event, eventHandler,false);
+   } else if (eventObj.attachEvent) {
+      event = "on" + event;
+      eventObj.attachEvent(event, eventHandler);
+   }
+}
+
+catchEvent(window,"load",setupEvents);
+
+function setupEvents(evnt) {
+  catchEvent(document.getElementById("text2"), "blur",checkRequired);
+  catchEvent(document.getElementById("text1"), "change", validateField);
+}
+
+function checkRequired (evnt) {
+  var theEvent = evnt ? evnt : window.event;
+  var target = theEvent.target ? theEvent.target : theEvent.srcElement;
+
+  var txtInput = target.value;
+  if (txtInput == null || txtInput == "") {
+    alert("value is required in field");
+  }
+}
+
+function validateField(evnt) {
+  var theEvent = evnt ? evnt : window.event;
+  var target = theEvent.target ? theEvent.target : theEvent.srcElement;
+  var rgEx = /^\d{3}[-]?\d{2}[-]?\d{4}$/g;
+  
+  var OK = rgEx.exec(target.value);
+  if (!OK) {
+    alert("not an ssn");
+  }
+
+}
+
+//]]>
+</script>
+</head>
+<body>
+<form id="someForm" action="">
+<p>
+<input type="text" name="text1" id="text1" /><br />
+<input type="password" name="text2" id="text2" /><br />
+<input type="hidden" name="text3" value="hidden value" />
+<textarea name="text4" cols="50" rows="10">The text area</textarea><br /><br />
+<input type="submit" value="Submit" />
+</p>
+</form>
+</body>
+</html>

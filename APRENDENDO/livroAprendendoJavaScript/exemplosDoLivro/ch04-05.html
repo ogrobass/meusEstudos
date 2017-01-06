@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Gotta Split</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function splitString() {
+
+   var inputString = new String('firstName=Shelley,lastName=Powers,state=Missouri,statement="This is a test, of split"');
+   var arrayTokens = inputString.split(',',3);
+
+   // process split on commas
+   for (var i = 0; i < arrayTokens.length; i++) {
+      document.writeln(arrayTokens[i] + "<br />");
+
+      // now split on equals and write just value
+      var newTokens = arrayTokens[i].split('=');
+      document.writeln(newTokens[1] + "<br /><br />");
+   }
+}
+//]]>
+</script>
+</head>
+<body onload="splitString()">
+<p>Some page content</p>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Page as Tree</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+div {
+    border: 1px solid #000;
+    padding: 5px;
+}
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+document.onclick=changeDoc;
+
+function changeDoc() {
+
+   // first, remove header
+   var hdr = document.getElementById("hdr1");
+   var div = document.getElementById("div1");
+   div.removeChild(hdr);
+
+   // replace the image with text
+   var img = document.getElementById("img1");
+   var p = document.getElementById("p2");
+   var txt = document.createTextNode("New text node");
+   p.replaceChild(txt,img);
+
+   // add new element
+   var div2= document.createElement("div");
+   div2.innerHTML="<h1>The End</h1>";
+   document.body.appendChild(div2);
+}
+
+//]]>
+</script>
+</head>
+<body>
+<div id="div1">
+<h1 id="hdr1">Header</h1>
+<!-- paragraph one -->
+<p id="p1">To better understand the document tree, consider a web page that has a head and body section, has a page title, and contains a DIV element that itself contains an H1 header and two paragraphs. One of the paragraphs contains <i>italicized text</i>; the other has an image--not an uncommon web page.</p>
+</div>
+<!-- paragraph two -->
+<p id="p2">Second paragraph with image. <img id="img1" src="ospreythumb.jpg" alt="bird" /></p>
+</body>
+</html>

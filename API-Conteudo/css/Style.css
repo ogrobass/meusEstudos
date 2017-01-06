@@ -1,0 +1,193 @@
+﻿/* DEFAULTS
+----------------------------------------------------------*/
+
+body
+{
+    background: #fff;
+    font-size: 13px;
+    font-family: arial,verdana,helvetica,sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: #666;
+}
+
+table
+{
+    font-size: 13px;
+    font-family: arial,verdana,helvetica,sans-serif;
+}
+
+a:link, a:visited, a:active
+{
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover
+{
+    color: #888;
+    text-decoration: underline;
+}
+
+img
+{
+    border: 0;
+}
+
+
+/* HEADINGS   
+----------------------------------------------------------*/
+
+h1
+{
+    font-size: 1.6em;
+}
+
+h2
+{
+    font-size: 1.5em;
+}
+
+h3
+{
+    font-size: 1.2em;
+}
+
+h4
+{
+    font-size: 1.1em;
+}
+
+h5, h6
+{
+    font-size: 1em;
+}
+
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+.Page
+{
+}
+
+.Page .Central
+{
+    width: 920px;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+.Central .Header
+{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+.Central .Main
+{
+    padding: 0;
+    margin: 0;
+    min-height: 420px;
+}
+
+.Clear
+{
+    clear: both;
+}
+
+.Footer
+{
+    color: #fff;
+    font-size: 11px;
+    background-color: #E30375;
+    padding: 9px;
+    margin-bottom: 16px;
+}
+
+.Footer .Left
+{
+    float: left;
+}
+
+.Footer .Right
+{
+    float: right;
+}
+
+.Formulario
+{
+    border: 1px solid #606060;
+    margin: 6px 0 10px 0;
+    padding: 4px;
+}
+
+.Formulario th, .Formulario td
+{
+    padding: 4px;
+}
+
+.Formulario .Label
+{
+    margin-left: 6px;
+}
+
+.Formulario .Button
+{
+    margin: 10px 15px 6px 0;
+}
+
+.Formulario .TextoGde
+{
+    width: 400px;
+}
+
+.Formulario .TextoPeq
+{
+    width: 80px;
+}
+
+.Formulario .Memo
+{
+    width: 400px;
+    height: 80px;
+}
+
+.Formulario input[readonly],
+.Formulario input[disabled] 
+{
+	border: 1px solid #A0A0A0;
+	background-color: #E0E0E0;
+}
+
+.Formulario textarea[readonly], 
+.Formulario textarea[disabled] 
+{
+	border: 1px solid #A0A0A0;
+	background-color: #E0E0E0;
+}
+
+.Formulario select[disabled] 
+{
+	border: 1px solid #A0A0A0;
+	background-color: #E0E0E0;
+}
+
+.Formulario .Button:hover 
+{
+}
+
+.Button a
+{
+    padding: 2px 8px 3px 8px;
+    font-size: 16px; 
+    font-weight: 500;
+    color: #fff;
+    background: #e30375;
+    text-decoration: none;
+    margin-right: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}

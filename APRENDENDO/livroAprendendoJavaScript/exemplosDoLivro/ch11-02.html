@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Modifying HTML Elements</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+window.onload=function() {
+
+   // get table and image
+   var tbl = document.getElementById('table1');
+   tbl.border="5px";
+   tbl.cellPadding="5px";
+
+   var img = document.getElementById("img1");
+   img.vspace="10";
+   
+   // for each attribute, add table row
+   var row1 = tbl.insertRow(-1);
+
+   // create two table cells
+   var cell1 = row1.insertCell(0);
+   var cell2 = row1.insertCell(1);
+
+   // create text values
+   var txtAttr1 = document.createTextNode("src");
+   var txtAttr1Val = document.createTextNode(img.src);
+
+   // append to text values to cells
+   cell1.appendChild(txtAttr1);
+   cell2.appendChild(txtAttr1Val);
+
+}
+//]]>
+</script>
+</head>
+<body>
+<p><img src="ospreythumb.jpg" alt="test image" class="testimage" id="img1"  /></p>
+<table id="table1">
+<tr><th>Attribute</th><th>Value</th></tr>
+</table>
+</body>
+</html>

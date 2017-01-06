@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>RegEx JiT Machine</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function catchEvent(eventObj, event, eventHandler) {
+   if (eventObj.addEventListener) {
+        eventObj.addEventListener(event, eventHandler,false);
+    } else if (eventObj.attachEvent) {
+        event = "on" + event;
+        eventObj.attachEvent(event, eventHandler);
+    }
+}
+
+function cancelEvent(event) {
+   if (event.preventDefault) {
+        event.preventDefault();
+        event.stopPropagation();
+    } else {
+        event.returnValue = false;
+        event.cancelBubble = true;
+    }
+}
+
+catchEvent(window,"load",setupEvents);
+
+function setupEvents(evnt) {
+    catchEvent(document.getElementById("someForm"), "submit", runCheck);
+}
+
+function runCheck(evnt) {
+
+   var theEvent = evnt ? evnt : window.event;
+
+   var regexp = document.getElementById("text1").value;
+   var rgEx = new RegExp(regexp.toString(),"ig");
+   var testString = document.getElementById("text2").value;
+   var OK = rgEx.exec(testString);
+
+   // result and print out
+   var resultField = document.getElementById("result");
+   if (!OK) {
+     resultField.value = "Not a match";
+   } else {
+     resultField.value = "The Pattern matched!";
+   }
+
+   cancelEvent(theEvent);
+
+}
+//]]>
+</script>
+</head>
+<body>
+  <form name="someForm" id="someForm" style="padding: 10px">
+    Regular Expression: <input type="text" name="text1" id="text1" /><br /><br />
+    <textarea name="text2" id="text2" cols=50 rows=10></textarea><br />
+    Result: <input type="text" name="text3" id="result" /><br /><br />
+    <input type="submit" value="Check RegExp" />
+  </form>
+</body>
+</html> 

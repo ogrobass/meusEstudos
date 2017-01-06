@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Clipping</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+
+#data1     {
+           position: absolute;
+           top: 100px; left: 100px;
+           padding: 0;
+           width: 200px;
+           height: 200px;
+           background-color: #ff0;
+           clip: rect(0px,200px,200px,0px);
+           }
+
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+// globals
+
+var bottom = 200;
+var clipped = false;
+
+document.onclick=testItem;
+
+function testItem() {
+  if (clipped) {
+       unClipItem();
+   } else {
+       clipItem();
+   }
+}
+
+function clipItem() {
+   bottom-=20;
+   var clip = "rect(0px,200px," + bottom + "px,0px)";
+   var obj = document.getElementById("data1");
+   obj.style.clip = clip;
+   if (bottom == 40) {
+      clipped=true;
+   } else {
+      setTimeout("clipItem()",100);
+   }
+}
+
+function unClipItem() {
+   bottom+=20;
+   var clip = "rect(0px,200px," + bottom + "px,0px)";
+   var obj = document.getElementById("data1");
+   obj.style.clip=clip;
+   if (bottom == 200) {
+      clipped=false;
+   } else {
+      setTimeout("unClipItem()",100);
+   }
+}
+
+//]]>
+</script>
+</head>
+<body>
+<div id="data1">
+This is the text contained within the div block.
+</div>
+</body>
+</html>

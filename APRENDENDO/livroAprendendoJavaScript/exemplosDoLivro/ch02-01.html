@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>URI Encoding</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function encodeStrings() {
+  var sOne = encodeURIComponent("http://burningbird.net/index.php?pagename=$1&page=$2");
+  var sTwo = encodeURI("http://someapplication.com/?catsname=Zöe&URL=");
+  var sOutput = "<p>Link is " + sTwo + sOne + "</p>"; 
+  document.write(sOutput);
+  
+  var sOneDecoded = decodeURI(sTwo);
+  var sTwoDecoded = decodeURIComponent(sOne);
+
+  var sOutputDecoded = "<p>" + sOneDecoded + "</p><p>" + sTwoDecoded + "</p>"; 
+  document.write(sOutputDecoded);
+
+}
+//]]>
+</script>
+</head>
+<body onload="encodeStrings()">
+<p></p>
+</body>
+</html>

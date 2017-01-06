@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Windows</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function catchEvent(eventObj, event, eventHandler) {
+  if (eventObj.addEventListener) {
+      eventObj.addEventListener(event, eventHandler,false);
+  } else if (eventObj.attachEvent) {
+      event = "on" + event;
+      eventObj.attachEvent(event, eventHandler);
+  }
+}
+
+catchEvent (window, "load", function() {
+   catchEvent(document.forms[0],"click",colorChange);
+   });
+
+function get() {
+     var result = document.getElementById('result');
+
+          var myFrame = document.getElementById("myFrame");
+
+  result.innerHTML =myFrame.contentWindow.document.getElementById("val2").innerHTML;
+}
+// remote scripting using iframe
+function colorChange() {
+   var colors = document.forms[0].color;
+   var result = document.getElementById('result');
+   for (var i = 0; i < colors.length; i++) {
+     if (colors[i].checked) {
+        var myFrame = document.getElementById("myFrame");
+        var currentColor = colors[i].value;
+        myFrame.contentWindow.location.href="service.php?color=" + colors[i].value;
+        window.onload=get;
+     }
+   } 
+}
+//]]>
+</script>
+</head>
+<body>
+<div>
+<form action="">
+<p>
+<input type="radio" name="color" value="red"/>Red<br />
+<input type="radio" name="color" value="blue" />Blue
+</p>
+</form>
+</div>
+<iframe 
+  name="myFrame"
+  id="myFrame"
+  style="width:0; height:0; border: 0"
+  src="service.php"></iframe>
+<div id="result">
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Ranges of values</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function values() {
+   var nValue = 0;
+
+   if (nValue >= 0 && nValue <= 100) {
+      alert("value between 0 and 100, inclusive");
+   }
+   if (nValue > 0 && nValue < 100) {
+      alert("value between 0 and 100 exclusive");
+   }
+   if (nValue > 100) {
+     alert ("value over 100");
+   }
+   if (nValue < 0) {    
+     alert ("value is negative");
+   }
+}
+//]]>
+</script>
+</head>
+<body onload="values()">
+<p>Some page content</p>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Implicit and Explicit String Conversion</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function convertToString() {
+   var newNumber = 34.56;
+   var newBoolean = true;
+   var nothing;
+   var newNull = null;
+
+   var strNumber = String(newNumber); var strBoolean = String(newBoolean);
+   var strUndefined = String(nothing); var strNull = String(newNull);
+
+   var strOutput = "<p>" + strNumber + " " + strBoolean + " " + strUndefined + " " + strNull + "</p>";
+   document.writeln(strOutput);
+
+   var strOutput2 = String(document);
+   document.writeln(strOutput2);
+
+}
+//]]>
+</script>
+</head>
+<body onload="convertToString()">
+<p></p>
+</body>
+</html>

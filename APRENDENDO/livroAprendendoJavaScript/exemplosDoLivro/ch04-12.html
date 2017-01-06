@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>FIFO</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+    //<![CDATA[
+
+function pushPop() {
+
+   // create FIFO queue and add items using push
+   var fifoArray = new Array();
+   fifoArray.push("Apple");
+   fifoArray.push("Banana");
+
+   var ln = fifoArray.push("Cherry");
+
+   // print out length and array
+   document.writeln("length is " + ln + " and array is " + fifoArray + "<br />");
+
+   // use shift to shift items off the array 
+   for (var i = 0; i < ln; i++) {
+      document.writeln(fifoArray.shift() + "<br />");
+   }
+
+   // print out length
+   document.writeln("length now is " + fifoArray.length + "<br /><br />");
+
+   // now, same with unshift
+   var fifoNewArray = new Array();
+
+   fifoNewArray.unshift("Learning");
+   fifoNewArray.unshift("Java");
+   ln = fifoNewArray.unshift("Script");
+
+   document.writeln("length is " + ln + " and array is " + fifoNewArray + "<br />");
+
+   // unshift
+   for (var i = 0; i < ln; i++) {
+     document.writeln(fifoNewArray.pop() + "<br />");
+   }
+   document.writeln("new length is " + fifoNewArray.length );
+}
+
+//]]>
+</script>
+</head>
+<body onload="pushPop();">
+  <p>some content</p>
+</body>
+</html>

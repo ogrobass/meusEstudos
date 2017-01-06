@@ -1,0 +1,17 @@
+{
+    "name": "miniacademia-v3",
+    "dependencies": {
+        "bootstrap": "3.x.x",
+        "animate-css": "x.x.x",
+        "fontawesome": "x.x.x",
+        "defiantjs" : "x.x.x",
+        "select2": "x.x.x",
+        "alertifyjs": "x.x.x",
+        "angular": "1.5.x",
+        "angular-ui-router" : "x.x.x",
+        "angular-ui-mask" : "x.x.x",
+        "angular-ui-select": "x.x.x",
+        "angular-sanitize": "x.x.x",
+        "angular-timer": "x.x.x"
+    }
+}

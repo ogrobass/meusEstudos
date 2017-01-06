@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Focus</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+window.onload=setObjects;
+
+function setObjects() {
+   document.getElementById("personData").lastName.focus();
+}
+
+//]]>
+</script>
+</head>
+<body>
+  <form id="personData" action="">
+    <p>
+First Name: <input type="text" name="firstName" /><br /><br />
+Last Name: <input type="text" name="lastName" />
+</p>
+</form>
+</body>
+</html>

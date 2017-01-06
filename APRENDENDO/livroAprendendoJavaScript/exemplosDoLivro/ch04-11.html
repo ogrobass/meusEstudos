@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Random Quote</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+  //<![CDATA[
+
+function getQuote() {
+
+   var quoteArray = new Array(5);
+   quoteArray[0] = "Quote one";
+   quoteArray[1] = "Quote two";
+   quoteArray[2] = "Quote three";
+   quoteArray[3] = "Quote four";
+   quoteArray[4] = "Quote five";
+
+   iValue = Math.random(); // random number between 0 and 1
+   iValue *= 5; // multiply by 5 to move the decimal
+   iValue = Math.floor(iValue); // round to nearest integer
+   alert(quoteArray[iValue]);
+}
+
+//]]>
+</script>
+</head>
+<body onload="getQuote();">
+  <p>some content</p>
+</body>
+</html>

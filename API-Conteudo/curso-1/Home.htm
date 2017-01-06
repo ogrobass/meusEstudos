@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Aula 1</title>
+  <link href="css/Style.css" rel="stylesheet" type="text/css" />
+  <link href="css/curso/jquery-ui-1.10.4.custom.css" rel="stylesheet" type="text/css" />
+  <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+  <script src="js/jquery-ui-1.10.4.custom.js" type="text/javascript"></script>
+  <script src="Wapi-V1.0.js" type="text/javascript"></script>
+  <script type="text/javascript">
+
+    function IniciarAvaliacao() {
+      var Posicao = WapiV10.IniciarAvaliacao();
+
+      // Grava também no campo de posição
+      var TxtPos = jQuery("#txtPosicao");
+      TxtPos.val(Posicao);
+
+      alert("A posição atual é " + Posicao);
+    }
+
+    function GravarPosicao(posicao) {
+      var TxtPos = jQuery("#txtPosicao").val();
+      var Pos = parseInt(TxtPos);
+
+      WapiV10.GravarPosicao(Pos);
+    }
+
+    function GravarRespMult(idPergunta) {
+
+      var selectedRadioValueId = document.querySelector(
+                        'input[name=respPergunta' + idPergunta + ']:checked').value;
+
+      parent.GravarRespMulti(idPergunta, selectedRadioValueId);
+
+    }
+
+    function GravarRespDissert(idPergunta) {
+
+      var resposta = document.getElementById("respPergunta" + idPergunta);
+      var nota = document.getElementById("notaPergunta" + idPergunta);
+
+      parent.GravarRespDissert(idPergunta, selectedRadioValueId)
+    }
+
+    function FinalAvaliacao() {
+
+      var retorno = parent.FinalizarAvaliacao();
+      var nota = isNaN(retorno);
+      if (nota)
+        alert(retorno)
+      else
+        alert("A nota no curso foi " + retorno);
+
+    }
+
+    jQuery(document).ready(function () {
+      jQuery("#tabsCurso")
+            .css('border-width', '0')
+            .tabs()
+            .addClass('ui-tabs-vertical ui-helper-clearfix');
+      jQuery("#tabsCurso li")
+            .removeClass('ui-corner-top')
+            .addClass('ui-corner-left');
+    })
+  </script>
+  <style type="text/css">
+    .ui-tabs-nav
+    {
+      width: 160px;
+    }
+    
+    #tabsCurso
+    {
+      width: 99%;
+    }
+    
+    #tabsCurso .ui-tabs-panel
+    {
+      float: left;
+      width: 680px;
+      padding: 1em 0 0 1.5em;
+      margin: 0;
+    }
+    
+    .tabCont .title
+    {
+      margin-top: 0;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    
+    .tabCont .subTitle
+    {
+      margin: 1em 0;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    
+    .tabCont .params,
+    .tabCont .form
+    {
+        border: 1px solid #888;
+        border-collapse: collapse;
+    }
+    
+    .tabCont .params th,
+    .tabCont .params td
+    {
+        border: 1px solid #888;
+        padding: 6px;
+    }
+    
+    .tabCont .form td
+    {
+        padding: 6px;
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="tabsCurso">
+    <ul>
+      <li><a href="#Apresent" data-ajax="false">Apresentação</a></li>
+      <li><a href="#InicAvaliacao" data-ajax="false">IniciarAvaliacao</a></li>
+      <li><a href="#GravarPosicao" data-ajax="false">GravarPosicao</a></li>
+      <li><a href="#GravarRespMulti" data-ajax="false">GravarRespMulti</a></li>
+      <li><a href="#LerRespMulti" data-ajax="false">LerRespMulti</a></li>
+      <li><a href="#GravarRespDissert" data-ajax="false">GravarRespDissert</a></li>
+      <li><a href="#LerRespDissert" data-ajax="false">LerRespDissert</a></li>
+      <li><a href="#FinalizarAvaliacao" data-ajax="false">FinalizarAvaliacao</a></li>
+    </ul>
+    <div id="Apresent" class="tabCont">
+      <p class="title">
+        Apresentação do Wapi versão 1.0</p>
+      <p>
+        Objetivos do Wapi:</p>
+      <ul>
+        <li>Apresentar conteúdos web na versão web do LMS e no aplicativo para dispositivos
+          móveis (off-line);</li>
+        <li>Prover um canal de comunicação entre conteúdos em Html / javascript e o LMS da
+          Wcomp;</li>
+      </ul>
+      <p>
+        Exemplos de conteúdos são: cursos, avaliações e materiais promocionais. Os mesmos
+        podem utilizar HTML 5, CSS, javascript e outras tecnologias web (Ex: Adobe Flash)
+        com o objetivo de enriquecer a experiência do usuário, prover animações, etc. Cabe
+        ao desenvolvedor do conteúdo garantir a compatibilidade do conteúdo com as plataformas
+        a serem utilizadas.
+      </p>
+      <p class="subTitle">
+        Estrutura
+      </p>
+      <p style="text-align: center">
+        <img src="container.png" />
+      </p>
+      <p>
+        A solução compreende um arquivo javascript (Wapi-V1.0.js) que será instalado no
+        mesmo diretório do conteúdo. Este arquivo fornece o api de comunicação entre o conteúdo
+        e o LMS. As chamadas serão feitas pelo conteúdo, e as informações tratadas por ele.
+      </p>
+    </div>
+    <div id="InicAvaliacao" class="tabCont">
+      <p class="title">
+        IniciarAvaliacao()
+      </p>
+      <p>
+        Este método será chamado para inicializar a Avalição, retornando a última posição
+        gravada pela conteúdo.
+      </p>
+      <p class="subTitle">
+        Exemplo
+      </p>
+      <p>
+        <input type="button" id="Button1" value="WapiV10.IniciarAvaliacao()" onclick="IniciarAvaliacao()" /></p>
+    </div>
+    <div id="GravarPosicao" class="tabCont">
+      <p class="title">
+        GravarPosicao(posicao)</p>
+      <p>
+        Esse método grava a posição do usuário no conteúdo, permitindo o reposicionamento
+        do mesmo futuramente.</p>
+      <p class="subTitle">
+        Parámetros
+      </p>
+      <table class="params">
+        <tr>
+          <th>
+            Parámetro
+          </th>
+          <th>
+            Descrição
+          </th>
+        </tr>
+        <tr>
+          <td>
+            posicao
+          </td>
+          <td>
+            Inteiro indicando a posição atual do usuário dentro do conteúdo.
+          </td>
+        </tr>
+      </table>
+      <p class="subTitle">
+        Exemplo
+      </p>
+      <table class="form">
+        <tr>
+          <td>
+            Posição
+          </td>
+          <td>
+            <input id="txtPosicao" type="text" style="width: 80px;" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+            <input type="button" id="butGravarPosicao" value="WapiV10.GravarPosicao(posicao)" onclick="GravarPosicao()" />
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="GravarRespMulti" class="tabCont">
+      <p class="title">
+        GravarRespMulti(idPergunta, idOpcao)</p>
+        <p>
+      Esse método será chamado quando o usuário responder uma Pergunta de Múltipla Escolha.</p>
+      <p class="title">
+      Exemplo :
+      <p>
+        Pergunta múltipla escolha - ID = 4989
+      </p>
+      <input type="radio" name="respPergunta4989" value="11">resp1 - id 4556<br>
+      <input type="radio" name="respPergunta4989" value="12">resp2 - id 4557<br>
+      <input type="radio" name="respPergunta4989" value="13">resp3 - id 4558<br>
+      <input type="radio" name="respPergunta4989" value="14">resp4 - id 4559<br>
+      <input type="radio" name="respPergunta4989" value="15">resp5 - id 4560<br>
+      <br>
+      <br>
+      <input type="button" id="respPerg3" value="Salvar" onclick="GravarRespMult('4989')"><br>
+    </div>
+    <div id="LerRespMulti" class="tabCont">
+      <p class="title">
+        API.LerRespostas()</p>
+      Este método será chamado para recuperar as Respostas salvas, caso não seje o primeiro
+      acesso. A API retornará um array com um ID (identificação) das Perguntas e respostas.
+      Exemplo:
+      <br>
+      <input type="button" id="respPerg2" value="Salvar" onclick="SalvarPergunta('pergunta2')"><br />
+    </div>
+    <div id="GravarRespDissert" class="tabCont">
+      <p class="title">
+        GravarRespDissert(idPergunta, resposta)</p>
+      Esse método da api será chamado para gravas as Respostas Dissertativas do usuário,
+      deverá ser passado o id da Pergunta, a resposta do usuário, e qual é nota maxima
+      da questão. Exemplo:
+      <textarea id="respPergunta4990" rows="4" cols="50"></textarea><br>
+      <br />
+      <input type="button" id="respPerg4" value="Salvar" onclick="GravarRespDissert(4990)"><br />
+      <input type="hidden" id="notaPergunta4990" value="2" />
+    </div>
+    <div id="LerRespDissert" class="tabCont">
+      <p class="title">
+        LerRespDissert(idPergunta, resposta)</p>
+      Esse método da api será chamado para ler respostas de perguntas dissertativas. Exemplo:
+      <textarea id="Textarea1" rows="4" cols="50"></textarea><br>
+      <br />
+      <input type="button" id="Button2" value="Salvar" onclick="GravarRespDissert(4990)"><br />
+      <input type="hidden" id="Hidden1" value="2" />
+    </div>
+    <div id="FinalizarAvaliacao" class="tabCont">
+      <p class="title">
+        FinalizarAvaliacao()</p>
+      Esse método será chamado para finalizar a avaliação, encerrar o tempo decorrido,
+      calcular e retornar a nota do usuário no caso de curso somente com perguntas múltipla
+      escolha, ou exibirá uma mensagem para o usuário, informando como ele deve proceder.
+      <br>
+      <input type="button" id="btnMens" value="FinalizarAvaliacao" onclick="FinalizarAvaliacao()"><br />
+    </div>
+  </div>
+</body>
+</html>

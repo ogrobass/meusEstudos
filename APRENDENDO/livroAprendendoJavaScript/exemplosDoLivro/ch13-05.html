@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Encapsulating</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<style type="text/css">
+div {
+        position: absolute;
+        top: 30px;
+        left: 50px;
+    }
+#div2 {
+       opacity: 0.0; filter: alpha(opacity=0);
+}
+#div1 img {
+filter:
+progid:DXImageTransform.Microsoft.AlphaImageLoader(src=fig0902.png,
+sizingMethod='scale');
+}
+#div2 img {
+filter:
+progid:DXImageTransform.Microsoft.AlphaImageLoader(src=fig0903.png,
+sizingMethod='scale');
+}
+
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+// global
+var theobjs = new Array();
+
+document.onclick=function() {
+
+   // fade div1
+   var currentOpacity = theobjs["div1"].objGetOpacity();
+
+   // end of transform
+   if (currentOpacity <= 0) {
+      document.onclick=null;
+      return;
+   }
+
+   currentOpacity-=0.1;
+   theobjs["div1"].objSetOpacity(currentOpacity);
+
+   // reveal div2
+   currentOpacity = theobjs["div2"].objGetOpacity();
+   currentOpacity+=0.1;
+   theobjs["div2"].objSetOpacity(currentOpacity);
+}
+
+function DivObj(obj) {
+   this.obj = obj;
+
+   this.getAlphaOpacity = function () {
+      var fltr = this.obj.style.filter;
+      var indx1 = fltr.indexOf("opacity=");
+      var indx2 = fltr.indexOf(")");
+      fltr = fltr.substring(indx1+8,indx2) / 100;
+      return fltr;
+   };
+   this.getCSSOpacity = function() {
+      return parseFloat(this.obj.style.opacity);
+   }
+   this.objGetOpacity = (this.obj.style.filter === undefined) ? this.getCSSOpacity: this.getAlphaOpacity;
+   this.alphaOpacity = function(value) {
+      var opacity = value * 100;
+      this.obj.style.filter="alpha(opacity="+opacity+")";
+   };
+   this.cssOpacity = function(value) {
+      this.obj.style.opacity=value;
+   };
+   this.objSetOpacity = (this.obj.style.filter === undefined) ? this.cssOpacity : this.alphaOpacity;
+
+}
+
+window.onload=function() {
+
+  theobjs["div1"] = new DivObj(document.getElementById("div1"));
+  theobjs["div2"] = new DivObj(document.getElementById("div2"));
+
+  // set initial opacity
+  theobjs["div1"].objSetOpacity(1.0);
+  theobjs["div2"].objSetOpacity(0.0);
+}
+
+//]]>
+</script>
+</head>
+<body>
+<div id="div1">
+<img src="fig0902.png" alt="" />
+</div>
+<div id="div2">
+<img src="fig0903.png" alt="" />
+</div>
+</body>
+</html>

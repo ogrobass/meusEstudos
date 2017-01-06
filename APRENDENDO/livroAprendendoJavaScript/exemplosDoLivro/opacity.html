@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Encapsulating</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+div {
+        position: absolute;
+        top: 30px;
+        left: 50px;
+    }
+#div2 {
+       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+       filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+       opacity: 0;
+}
+#div1 img {
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=fig0902.png,
+sizingMethod='scale');
+}
+#div2 img {
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=fig0903.png,
+sizingMethod='scale');
+}
+
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+
+// global
+var theobjs = new Array();
+
+document.onclick=function() {
+
+   // fade div1
+   var currentOpacity = theobjs["div1"].objGetOpacity();
+
+   // end of transform
+   if (currentOpacity <= 0) {
+      document.onclick=null;
+      return;
+   }
+
+   currentOpacity-=0.1;
+   theobjs["div1"].objSetOpacity(currentOpacity);
+
+   // reveal div2
+   currentOpacity = theobjs["div2"].objGetOpacity();
+   currentOpacity+=0.1;
+   theobjs["div2"].objSetOpacity(currentOpacity);
+}
+
+function DivObj(obj) {
+   this.obj = obj;
+
+   this.objGetOpacity = function() {
+      return parseFloat(this.obj.style.opacity);
+   }
+
+   this.alphaOpacity = function(value) {
+      var opacity = value * 100;
+      var theobj = this.obj;
+      theobj.style.filter='progid:DXImageTransform.Microsoft.Alpha(Opacity=' + opacity + ')';
+      if (theobj.id == "div1")
+        document.getElementById("img1").style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=fig0902.png,sizingMethod='scale')";
+      else
+        document.getElementById("img2").style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=fig0902.png,sizingMethod='scale')";
+
+   };
+   this.cssOpacity = function(value) {
+      this.obj.style.opacity=value;
+   };
+   this.objSetOpacity=function(value) {
+       this.alphaOpacity(value);
+       this.cssOpacity(value);
+    }
+
+}
+
+window.onload=function() {
+
+  theobjs["div1"] = new DivObj(document.getElementById("div1"));
+  theobjs["div2"] = new DivObj(document.getElementById("div2"));
+
+  // set initial opacity
+  theobjs["div1"].objSetOpacity(1.0);
+  theobjs["div2"].objSetOpacity(0.0);
+}
+
+//]]>
+</script>
+</head>
+<body>
+<div id="div1">
+<img id="img1" src="fig0902.png" alt="" />
+</div>
+<div id="div2">
+<img id="img2" src="fig0903.png" alt="" />
+</div>
+</body>
+</html>

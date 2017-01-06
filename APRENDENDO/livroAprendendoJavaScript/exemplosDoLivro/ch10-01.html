@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>innerHTML</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+// if cookie enabled
+window.onload=function() {
+
+   if (navigator.cookieEnabled) {
+
+      var sum = readCookie("sum");
+      if (sum) {
+         var iSum = parseInt(sum) + 1;
+         alert("cookie count is " + iSum);
+         if (iSum > 5) {
+            eraseCookie("sum");
+         } else {
+            setCookie("sum",iSum);
+         }
+      } else {
+         alert("no cookie, setting now");
+         setCookie("sum", 0);
+      }
+   }
+
+}
+// set cookie expiration date in year 2010
+function setCookie(key,value) {
+
+   var cookieDate = new Date(2010,11,10,19,30,30);
+   document.cookie=key + "=" + encodeURI(value) + "; expires=" + cookieDate.toGMTString() + "; path=/";
+}
+// each cookie separated by semicolon;
+function readCookie(key) {
+  var cookie = document.cookie;
+  var first = cookie.indexOf(key+"=");
+
+  // cookie exists
+  if (first >= 0) {
+    var str = cookie.substring(first,cookie.length);
+    var last = str.indexOf(";");
+
+    // if last cookie
+    if (last < 0) last = str.length;
+
+    // get cookie value
+    str = str.substring(0,last).split("=");
+    return decodeURI(str[1]);
+  } else {
+    return null;
+  }
+}
+
+// set cookie date to the past to erase
+function eraseCookie (key) {
+
+   var cookieDate = new Date(2000,11,10,19,30,30);
+   document.cookie=key + "= ; expires="+cookieDate.toGMTString()+"; path=/";
+}
+//]]>
+</script>
+</head>
+<body>
+<p>Paragraph text.</p>
+</body>
+</html>

@@ -1,0 +1,37 @@
+html
+{
+	background: #fff url(drink.jpg) no-repeat fixed top left;
+	color: #000;
+}
+body
+{
+        font-family: Verdana, Arial, sans-serif;
+}
+form
+{
+	color: #000;
+	padding: 20px;
+	text-align: left;
+}
+h1
+{
+	margin-left: 380px;
+}
+label
+{
+	display: block;
+	margin-bottom: 10px;
+}
+.recipe
+{
+        margin-left: 400px;
+        margin-top: 30px;
+        background-color: #E6F990;
+        width: 450px;
+        padding: 10px;
+}
+#drinkblock
+{  
+        margin-left: 380px;
+        width: 500px;
+}

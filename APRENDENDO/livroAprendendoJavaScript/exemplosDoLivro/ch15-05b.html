@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>City lookup</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+div.elem 
+{ 
+   margin: 20px; 
+}
+div#cities
+{
+  display: none;
+}
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+// global variables
+var xmlHttpObj;
+
+window.onload=function() {
+   document.getElementById("cities").style.display="block";
+   document.getElementById("submit").style.display="none";
+   document.getElementById("statelist").onchange=populateList;
+}
+
+function getXmlHttp() {
+   var xmlhttp;
+   if (window.XMLHttpRequest) {
+      xmlhttp = new XMLHttpRequest();
+   } else if (window.ActiveXObject) {
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+   } else
+      xmlhttp=null;
+   return xmlhttp;
+}
+
+function populateList() {
+   var state = document.forms[0].elements[0].value;
+   var url = 'ch15-04b.php?state=' + state;
+   xmlHttpObj = getXmlHttp();
+   if (!xmlHttpObj) return;
+   xmlHttpObj.open('GET', url, true);
+   xmlHttpObj.onreadystatechange = getCities;
+   xmlHttpObj.send(null);
+
+}
+
+function getCities() {
+
+   if(xmlHttpObj.readyState == 4 && xmlHttpObj.status == 200) {
+     try {
+       var response = JSON.parse(xmlHttpObj.responseText);
+         var sel = document.getElementById("cities");
+         var name = value = null;
+         for (var i = 0; i < response.length; i++) {
+            name = response[i].title;
+            value = response[i].value;
+            document.forms[0].elements[1].options[i] = new Option(name,value);
+         }
+      } catch (e) {
+            alert(e.message);
+      }
+   } else if (xmlHttpObj.readyState == 4 && xmlHttpObj.status != 200) {
+      document.getElementById('cities').innerHTML = 'Error: No Cities!';
+   }
+}
+//]]>
+</script>
+</head>
+<body>
+<h3>Select State:</h3>
+<form action="ch14-02.php" method="get">
+<div class="elem">
+<select id="statelist" name="state">
+<option value="CA">California</option>
+<option value="MO">Missouri</option>
+<option value="WA">Washington</option>
+<option value="ID">Idaho</option>
+</select>
+</div>
+<h3>Cities:</h3>
+<div class="elem" id="cities">
+<select>
+<option> </option>
+</select>
+</div>
+<p>
+<input type="submit" value="Lookup" id="submit" />
+</p>
+</form>
+
+</body>
+</html>

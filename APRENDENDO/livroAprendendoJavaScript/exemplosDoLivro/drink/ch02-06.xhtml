@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<title>Drinks</title>
+<link rel="stylesheet" href="drink.css" type="text/css" media="screen" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="addingajax.js">
+</script>
+<script type="text/javascript" src="getdrink2.js">
+</script>
+</head>
+<body>
+<h1>Drinks</h1>
+<div id="drinkblock">
+<form action="drink.php" id="myform" method="get">
+<fieldset legend="drinks">
+<label for="drink">Select drink:</label>
+<select name="drink" id="drink">
+<option value="TEA" selected="selected">Hot Tea</option>
+<option value="APPLETINI">Appletini</option>
+<option value="NONCHAMP">Non-alcoholic Champagne</option>
+<option value="SWMPMARGARITA">Swamp Margarita</option>
+<option value="LEMON">Lemon Drop</option>
+</select>
+<input type="submit" value="Get Recipe" />
+</fieldset>
+</form>
+</div>
+</body>
+</html>

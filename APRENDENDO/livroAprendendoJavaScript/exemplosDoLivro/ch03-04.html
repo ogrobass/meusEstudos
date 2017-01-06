@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Equality</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function choices() {
+   var sValue = "3.0";
+   var nValue = 3.0;
+
+   if (nValue == "3.0") alert("According to equality, value is 3.0");
+
+   if (nValue === "3.0") alert("According to strict equality, value is 3.0");
+
+   if (sValue != 3.0) alert ("According to equality, value is not 3.0");
+
+   if (sValue !== 3.0) alert ("According to strict equality, value is not 3.0");
+}
+
+//]]>
+</script>
+</head>
+<body onload="choices()">
+<p>Some page content</p>
+</body>
+</html>

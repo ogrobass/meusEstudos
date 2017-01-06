@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Select</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function catchEvent(eventObj, event, eventHandler) {
+   if (eventObj.addEventListener) {
+       eventObj.addEventListener(event, eventHandler,false);
+   } else if (eventObj.attachEvent) {
+       event = "on" + event;
+       eventObj.attachEvent(event, eventHandler);
+   }
+}
+
+function cancelEvent(event) {
+   if (event.preventDefault) {
+       event.preventDefault();
+       event.stopPropagation();
+   } else {
+       event.returnValue = false;
+       event.cancelBubble = true;
+   }
+}
+
+catchEvent(window,"load",setupEvents);
+
+function setupEvents(evnt) {
+     catchEvent(document.getElementById("someForm"), "submit", checkForm);
+}
+
+function checkForm(evnt) {
+   var theEvent = evnt ? evnt : window.event;
+
+   var opts = document.getElementById("someForm").selectOpts.options;
+
+   for (var i = 0; i < opts.length; i++) {
+      if (opts[i].selected) {
+         opts[i] = null;
+      }
+   }
+
+   cancelEvent(theEvent);
+}
+
+//]]>
+</script>
+</head>
+<body>
+<form id="someForm" action="">
+<p>
+<select id="selectOpts" multiple="multiple">
+<option value="Opt1">Option One</option>
+<option value="Opt2">Option Two</option>
+<option value="Opt3">Option Three</option>
+</select>
+<input type="submit" value="Submit" />
+</p>
+</form>
+</body>
+</html>

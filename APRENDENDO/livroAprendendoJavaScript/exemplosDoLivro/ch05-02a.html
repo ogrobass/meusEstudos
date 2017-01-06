@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Build a Function</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function buildFunction() {
+
+   // prompt for function and args
+   var func = prompt("Enter function body:");
+   var x = 3;
+   var y = 4;
+
+   // invoke anonymous function
+   var op = new Function("x", "y", "x + y");
+   var theAnswer = op(x, y);
+
+   // print out results
+   document.writeln("The answer is: " + theAnswer);
+}
+
+//]]>
+</script>
+</head>
+<body onload="buildFunction();">
+<p>some content</p>
+</body>
+</html>

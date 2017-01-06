@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Timers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+window.onload=function () {
+document.writeln("<h1>screen object</h1><p>");
+document.writeln("screen.availTop: " + screen.availTop + "<br />");
+document.writeln("screen.availLeft: " + screen.availLeft + "<br />");
+document.writeln("screen.availWidth: " + screen.availWidth + "<br />");
+document.writeln("screen.availHeight: " + screen.availHeight + "<br />");
+document.writeln("screen.colorDepth: " + screen.colorDepth + "<br />");
+document.writeln("screen.pixelDepth: " + screen.pixelDepth + "<br /></p>");
+
+document.writeln("<h1>navigator object</h1><p>");
+
+document.writeln("navigator.userAgent: " + navigator.userAgent + "<br />");
+document.writeln("navigator.appName: " + navigator.appName + "<br />");
+document.writeln("navigator.appCodeName: " + navigator.appCodeName + "<br />");
+document.writeln("navigator.appVersion: " + navigator.appVersion + "<br />");
+document.writeln("navigator.appMinorVersion: " + navigator.appMinorVersion + "<br />");
+document.writeln("navigator.platform: " + navigator.platform + "<br />");
+document.writeln("navigator.cookieEnabled: " + navigator.cookieEnabled + "<br />");
+document.writeln("navigator.onLine: " + navigator.onLine + "<br />");
+document.writeln("navigator.userLanguage: " + navigator.userLanguage + "<br />");
+if (navigator.mimeTypes) {
+   document.writeln("navigator.mimeTypes[1].description: " + navigator.mimeTypes[1].description + "<br />");
+   document.writeln("navigator.mimeTypes[1].type: " + navigator.mimeTypes[1].type + "<br />");
+}
+
+if (navigator.plugins) {
+   for (var i = 0; i < navigator.plugins.length; i++) {
+      document.writeln("navigator.plugins[i].description: " + navigator.plugins[i].description + "<br />");
+   }
+}
+
+document.writeln("</p>");
+document.onclick=function () {
+   history.back();
+   return false;
+}
+}
+
+//]]>
+</script>
+</head>
+<body>
+<h1>Hello</h1>
+</body>
+</html>

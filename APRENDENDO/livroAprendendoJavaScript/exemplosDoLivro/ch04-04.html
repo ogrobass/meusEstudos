@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>String HTML</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function stringHTML() {
+
+var someString = new String("This is the test string");
+
+document.writeln(someString.big() + "<br />");
+document.writeln(someString.blink() + "<br />");
+document.writeln(someString.sup() + "<br />");
+document.writeln(someString.strike() + "<br />");
+document.writeln(someString.bold() + "<br />");
+document.writeln(someString.italics() + "<br />");
+document.writeln(someString.small() + "<br />");
+document.writeln(someString.link('http://www.oreilly.com'));
+}
+//]]>
+</script>
+</head>
+<body onload="stringHTML()">
+<p>Some page content</p>
+</body>
+</html>

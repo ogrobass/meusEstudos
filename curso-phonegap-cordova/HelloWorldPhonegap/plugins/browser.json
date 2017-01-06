@@ -1,0 +1,76 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "net.teiabrasil.hellophonegap"
+        }
+    }
+}

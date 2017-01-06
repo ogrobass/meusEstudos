@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Date</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function testingDate() {
+
+   // new date
+   var dtNow = new Date();
+
+   // set day, month, year
+   dtNow.setDate(18);
+   dtNow.setMonth(10);
+   dtNow.setYear(1954);
+   dtNow.setHours(7);
+   dtNow.setMinutes(2);
+
+   // output formatted 
+   document.writeln(dtNow.toString() + "<br />");
+   document.writeln(dtNow.toLocaleString() + "<br />");
+   document.writeln(dtNow.toLocaleDateString() + "<br />");
+   document.writeln(dtNow.toLocaleTimeString() + "<br />");
+   document.writeln(dtNow.toGMTString() + "<br />");
+   document.writeln(dtNow.toUTCString());
+}
+//]]>
+</script>
+</head>
+<body onload="testingDate()">
+<p>Some page content</p>
+</body>
+</html>

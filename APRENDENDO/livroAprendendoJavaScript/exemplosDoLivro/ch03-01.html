@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Nested Conditional Statements</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function choices() {
+   var prefChoice = 1;
+   var stateChoice = 'OR';
+   var genderChoice = 'F';
+
+   if (prefChoice === 1) {
+      alert("You've picked option 1. Here is what will happen...");
+   
+      if (stateChoice === 'OR') {
+         alert ("You've picked 1 and you're from Oregon.");
+
+         if (genderChoice === 'M') {
+            alert("You've picked 1 and you're from Oregon and you're a man.");
+
+         } // innermost block
+
+      } // middle block
+
+   } // outerblock
+}
+
+//]]>
+</script>
+</head>
+<body onload="choices()">
+<p>Imagine a form with five fields and a button here...</p>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Tune Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+function Tune (title) {
+   this.title = title;
+}
+function printTitle() {
+   document.writeln(this.title + "<br />");
+}
+
+window.onload=function() {
+   Tune.prototype.print = printTitle;
+
+   var oneTune = new Tune("One Title");
+   oneTune.print();
+
+   var anotherTune = new Tune("Another Title");
+   anotherTune.print();
+}
+
+//]]>
+</script>
+</head>
+<body>
+<p>some content</p>
+</body>
+</html>

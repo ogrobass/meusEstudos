@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Tune Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+var Tune = function(title) {
+   this.title = title;
+   var performedBy = new Array();
+   this.addPerformer = function (performer) {
+      var i = performedBy.length;
+      performedBy[i] = performer;
+   }
+   this.listPerformers = function() {
+      var singers = "";
+      for (var i = 0; i < performedBy.length; i++ ) {
+         singers += performedBy[i] + " ";
+      }
+      return singers;
+   }
+}
+
+window.onload=function () {
+   var song = new Tune("Hello");
+   song.addPerformer("Me");
+   song.addPerformer("You");
+   song.addPerformer("Us");
+   document.writeln("Song is " + song.title);
+   document.writeln("Performed by " + song.listPerformers());
+}
+//]]>
+</script>
+</head>
+<body>
+<p>some content</p>
+</body>
+</html>

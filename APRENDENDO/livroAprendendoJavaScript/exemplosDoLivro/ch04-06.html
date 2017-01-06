@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>RegExp string matching</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//<![CDATA[
+
+window.onload=function() {
+  var re = /(ds)+(j+s)/ig;
+  var str = "cfdsJS *(&dsjjjsYJSjs 888dsdsJS";
+  var resultArray = re.exec(str);
+  while (resultArray) {
+    document.writeln(resultArray[0]);
+    document.writeln(" next match starts at " + re.lastIndex + "<br />");
+    for (var i = 1; i < resultArray.length; i++) {
+      document.writeln("substring of " + resultArray[i] + "<br />");
+    }
+    document.writeln("<br />");
+    resultArray = re.exec(str);
+  }
+}
+//]]>
+</script>
+</head>
+<body>
+<p></p>
+</body>
+</html>
