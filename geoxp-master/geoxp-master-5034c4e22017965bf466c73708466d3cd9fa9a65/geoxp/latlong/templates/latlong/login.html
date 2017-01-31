@@ -1,0 +1,12 @@
+{% extends 'latlong/baseheader.html' %}
+
+{% block after_header %}
+    <form action="{% url 'login' %}" method="post" class="content">
+        {% csrf_token %}
+            {{form.as_p}}
+            <input class="button" type="submit" name="action" value="Login" />
+{% endblock after_header %}
+
+{% block title %}
+GeoXP - Login
+{% endblock title %}

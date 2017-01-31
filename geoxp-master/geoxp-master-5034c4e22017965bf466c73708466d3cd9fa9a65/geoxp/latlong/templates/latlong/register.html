@@ -1,0 +1,35 @@
+{% extends 'latlong/baseheader.html' %}
+
+{% block after_header %}
+    <form action="{% url 'register' %}" method="post" class="content">
+        {% csrf_token %}
+        <p>
+        {{form.non_field_errors}}
+        {{form.email.errors}}
+        {{form.username.errors}}
+        {{form.password1.errors}}
+        {{form.password2.errors}}
+        </p>
+        <div class="register">
+            {{form.email.label}}
+            {{form.email}}
+        </div>
+        <div class="register">
+            {{form.username.label}}
+            {{form.username}}
+        </div>
+        <div class="register">
+            {{form.password1.label}}
+            {{form.password1}}
+        </div>
+        <div class="register">
+            {{form.password2.label}}
+            {{form.password2}}
+        </div>
+        <input class="button" type="submit" name="action" value="Enviar" />
+    </form>
+{% endblock after_header %}
+
+{% block title %}
+GeoXP - Cadastro
+{% endblock title %}

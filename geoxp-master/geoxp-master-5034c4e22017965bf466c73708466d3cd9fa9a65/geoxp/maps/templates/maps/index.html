@@ -1,0 +1,37 @@
+{% extends 'latlong/base.html' %}
+{% load static from staticfiles %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div id="side-menu">
+    <ul>
+    {% for m in maps %}
+        <li><a href="/maps/{{ m.id }}">({{ m.created_at }}) - {{ m.name }}</a></li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
+<div id="map"></div>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrgR-BkaOUHomgADa7O9VUoOLaZEoQSls&callback=initMap">
+</script>
+{% endblock content %}
+
+{% block title %}
+Mapas
+{% endblock title %}
+
+{% block css %}
+<link href="{% static 'maps/css/style.css' %}" rel="stylesheet">
+{% endblock css %}
+
+{% block js %}
+<script>
+    window.locs = '{{map|safe}}';
+    window.items = '{{items|safe}}';
+    window.src = "{% static 'maps/json/sp.json' %}";
+</script>
+
+<script type="text/javascript" src="{% static 'maps/js/maps.js' %}">
+</script>
+{% endblock js %}
