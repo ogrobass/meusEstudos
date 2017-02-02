@@ -1,0 +1,26 @@
+{% extends 'latlong/baseheader.html' %}
+
+{% block after_header %}
+    <div class="error_text">
+        <span>
+        {% if zero_results %}
+            Não foi possível obter as coordenadas para algum endereço na sua
+            lista. Verifique se os endereços estão corretos.
+        {% elif over_query_limit %}
+            Desculpe, o sistema passou do limite de buscas por dia. Tente
+            novamente amanhã.
+        {% elif request_denied %}
+            Erro. Tente enviar o arquivo novamente.
+        {% elif invalid_request %}
+            Algum dos endereços na sua lista está vazio.
+            Verifique os endereços.
+        {% else %}
+            Erro desconhecido.
+        {% endif %}
+        </span>
+    </div>
+{% endblock after_header%}
+
+{% block title %}
+Erro
+{% endblock title %}

@@ -1,0 +1,41 @@
+{% extends 'latlong/baseheader.html' %}
+
+{% block after_header %}
+    <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="content">
+            {{form}}
+            <input class="button" type="submit" name="action" value="Download" />
+            <input class="button" type="submit" name="action" value="Ver mapa" />
+        </div>
+    </form>
+    <div class="footer">
+        <div class="instructions">
+            <p> Cadastre-se para salvar seus mapas ou crie mapas temporários sem a
+                necessidade de cadastro </p>
+            <p> Instruções sobre o formato do arquivo de entrada:<br />
+                Formato: .csv (arquivo de texto em forma de tabela, cujas colunas são separadas por vírgula ou ponto-e-vírgula)<br />
+                É importante que as primeiras quatro colunas sejam, respectivamente, 'Nome', 'Rua', 'Número', 'CEP'.<br />
+                Exemplo:<br ></p>
+            <table>
+                <tr>
+                    <th>Nome</th><th>Rua</th><th>Número</th><th>CEP</th>
+                </tr>
+                <tr>
+                    <td>MASP</td><td>Av. Paulista</td><td>1578</td><td>01310-200</td>
+                </tr>
+                <tr>
+                    <td>Edifício Copan</td><td>Av. Ipiranga</td><td>200</td><td>01046-010</td>
+                </tr>
+            </table>
+            <p> A tabela acima pode ser escrita, em .csv, da forma a seguir:</p>
+            <p> Nome,Numero,Rua,CEP<br />
+                MASP,Av. Paulista,1578,01310-200<br />
+                Edifício Copan,Av. Ipiranga,200,01046-010<br /></p>
+        </div>
+    </div>
+{% endblock after_header %}
+
+{% block title %}
+GeoXP - Mapas personalizados
+{% endblock title %}

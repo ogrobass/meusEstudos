@@ -1,0 +1,18 @@
+version: '2'
+services:
+    mysql:
+        restart: always
+        image: mysql
+        environment:
+            - MYSQL_DATABASE=mysql
+            - MYSQL_USER=root
+            - MYSQL_ROOT_PASSWORD=admin
+    web:
+        restart: always
+        build: .
+        environment:
+            - PORT=8000
+        ports:
+            - "8000:8000"
+        depends_on:
+            - mysql

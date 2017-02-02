@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+<head>
+    <script type="text/javascript" src="{% static 'maps/js/maps.js' %}">
+</script>
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link href="{% static 'latlong/css/style.css' %}" rel="stylesheet">
+    {% block css %}
+    {% endblock %}
+    <link href="https://fonts.googleapis.com/css?family=Expletus+Sans:700|Lato:300" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    {% block js %}
+    {% endblock %}
+</head>
+<body>
+    <div class="navbar">
+        <div id="nbleft">
+            <a href="/"><i class="fa fa-home" aria-hidden="true"></i></a>
+        </div>
+        <div id="nbright">
+        {% if user.is_authenticated %}
+            {% if user.maps.count %}
+                <a href="/maps">Meus mapas</a>
+            {% endif %}
+            <a href="/logout" class="button navbutton"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+        {% else %}
+            <a href="/register">Cadastre-se</a>
+            <a href="/login" class="button navbutton"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+        {% endif %}
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

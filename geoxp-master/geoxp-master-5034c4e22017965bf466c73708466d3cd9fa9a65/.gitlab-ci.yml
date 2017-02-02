@@ -1,0 +1,23 @@
+image: python:2-onbuild
+services:
+    - mysql:latest
+variables:
+    MYSQL_DATABASE: mysql
+    MYSQL_ROOT_PASSWORD: admin
+
+connect:
+    image: mysql:latest
+    script:
+        - echo "SELECT 'OK';" | mysql password="$MYSQL_ROOT_PASSWORD" --host=mysql "$MYSQL_DATABASE"
+
+all_tests:
+    only:
+        - develop
+    script:
+        - cd ./geoxp/
+        - pip install -r requirements.txt
+        - python2 ./manage.py test --with-coverage
+        - export CODECOV_TOKEN=68a4083b-012e-4f3f-bc91-f18bc6e9aec0
+        - coverage run --source=. manage.py test
+        - bash <(curl -s https://codecov.io/bash)
+    when: on_success
