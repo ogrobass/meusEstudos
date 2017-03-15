@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<script type="text/javascript">
+		var area = (function(){
+			
+			var retangulo = function(base, altura) { 
+				var area = base * altura;
+				return "Retangulo: "+area;
+			}
+
+			var triangulo = function(base, altura) {
+				var area = (base * altura) / 2;
+				return "Triangulo: "+area;
+			}
+
+			var trapezio = function(baseMaior, baseMenor, altura) {
+				var area = ((baseMaior + baseMenor) * altura) / 2;
+				return "Trapézio: "+area;
+			}
+
+			return {
+				retangulo: retangulo,
+				triangulo: triangulo,
+				trapezio: trapezio
+			}
+		})();	
+
+
+		console.log(area.retangulo(2,3));
+		console.log(area.triangulo(3,1.5));
+		console.log(area.trapezio(6,3,1.5));			
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
