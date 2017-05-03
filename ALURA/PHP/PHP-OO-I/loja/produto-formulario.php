@@ -5,8 +5,12 @@ require_once("logica-usuario.php");
 
 verificaUsuario();
 
-$produto = array("nome" => "", "descricao" => "", "preco" => "", 
-	"categoria_id" => "1", "usado" => "");
+//$produto = array("nome" => "", "descricao" => "", "preco" => "", "categoria_id" => "1", "usado" => "");
+$categoria = new Categoria();
+$categoria->id = 1;
+
+$produto = new Produto();
+$produto->categoria = $categoria;
 
 $categorias = listaCategorias($conexao);
 
