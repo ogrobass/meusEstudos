@@ -37,7 +37,7 @@
         );        
 
         echo form_label("Descricção", "descricao");
-        echo form_textare(
+        echo form_textarea(
             array(
                 "name"      => "descricao",
                 "id"        => "descricao",
@@ -45,6 +45,8 @@
             )
         );
 
+        echo '<hr>';
+        
         echo form_button(
             array(
                 "class"   => "btn btn-primary",

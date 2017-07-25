@@ -25,6 +25,8 @@
         <tr>
             <td><?= $produto['nome']; ?></td>
             <td><?= numeroEmReais($produto['preco']); ?></td>
+            <td><?=anchor("produtos/mostra?id={$produto['id']}", "<span class='glyphicon glyphicon-eye-open
+'></span> Visualizar", array("class" => "btn btn-info btn-sm"))?></td>
         </tr>    
     <?php endforeach; ?>
     </table>
