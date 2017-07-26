@@ -12,12 +12,11 @@
 <div class="container">
     <div class="panel panel-primary"> 
         <div class="panel-heading"> 
-            <h3 class="panel-title">Produto</h3> 
+            <h3 class="panel-title"><?=$produto['nome'];?></h3> 
         </div> 
         <div class="panel-body"> 
-            <div><?=$produto['nome'];?></div>
-            <div><?=$produto['preco'];?></div>
-            <div><?=auto_typography($produto['descricao']);?></div>            
+            <p><?=numeroEmReais($produto['preco']);?></p>
+            <p><?=auto_typography(html_escape($produto['descricao']));?></p>            
         </div> 
     </div>
     

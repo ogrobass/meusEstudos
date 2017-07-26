@@ -24,8 +24,9 @@
     <?php foreach($produtos as $produto): ?>
         <tr>
             <td><?= $produto['nome']; ?></td>
+            <td><?= character_limiter(html_escape($produto['descricao'], 20)); ?></td>
             <td><?= numeroEmReais($produto['preco']); ?></td>
-            <td><?=anchor("produtos/mostra?id={$produto['id']}", "<span class='glyphicon glyphicon-eye-open
+            <td><?=anchor("produtos/{$produto['id']}", "<span class='glyphicon glyphicon-eye-open
 '></span> Visualizar", array("class" => "btn btn-info btn-sm"))?></td>
         </tr>    
     <?php endforeach; ?>
