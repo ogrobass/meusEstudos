@@ -13,7 +13,7 @@ class Usuarios extends CI_Controller {
         $this->load->model("usuarios_model");
         $this->usuarios_model->salva($usuarios);
 
-        $this->load->view("usuarios/novo");
+        $this->load->template("usuarios/novo");
     }
 
 }

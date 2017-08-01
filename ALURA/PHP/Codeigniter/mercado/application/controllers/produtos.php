@@ -11,7 +11,7 @@ class Produtos extends CI_Controller {
 
         $dados = array("produtos" => $produtos);
         
-        $this->load->view("produtos/index", $dados);
+        $this->load->template("produtos/index", $dados);
     }
 
 
@@ -20,16 +20,18 @@ class Produtos extends CI_Controller {
     	$this->load->model("produtos_model");
     	$produto = $this->produtos_model->busca($id);
     	$dados = array("produto" => $produto);    	
-    	$this->load->view("produtos/mostra", $dados);
+    	$this->load->template("produtos/mostra", $dados);
     }
 
 
     public function formulario() {
-    	$this->load->view('produtos/formulario');
+        autoriza();
+    	$this->load->template('produtos/formulario');
     }
 
     public function novo() {    	
-
+        $usuarioLogado = autoriza();
+        
         $this->form_validation->set_rules("nome", "nome", "required|min_length[5]|callback_nao_tenha_a_palavra_melhor");
         $this->form_validation->set_rules("preco", "preco", "required");
         $this->form_validation->set_rules("descricao", "descricao", "required|min_length[10]");
@@ -37,8 +39,7 @@ class Produtos extends CI_Controller {
 
         $sucesso = $this->form_validation->run();
         
-        if($sucesso) {
-            $usuarioLogado = $this->session->userdata("usuario_logado");
+        if($sucesso) {            
             $produto = array(
                 "nome"       => $this->input->post("nome"),     
                 "descricao"  => $this->input->post("descricao"),        
@@ -52,7 +53,7 @@ class Produtos extends CI_Controller {
             $this->session->set_flashdata("success", "Produto inserido com sucesso!");
             redirect("/");
         } else {
-            $this->load->view('produtos/formulario');
+            $this->load->template('produtos/formulario');
         }
     }
 
