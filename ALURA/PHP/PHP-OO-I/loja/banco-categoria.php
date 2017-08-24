@@ -1,6 +1,6 @@
 <?php
-require_once("Categoria.php");
 require_once("conecta.php");
+require_once("class/Categoria.php");
 
 function listaCategorias($conexao) {
 
@@ -10,9 +10,9 @@ function listaCategorias($conexao) {
 
 	while($categoria_array = mysqli_fetch_assoc($resultado)) {
 
-		$categoria-> new Categoria();
-		$categoria->id = $categoria_array['id'];
-		$categoria->nome = $categoria_array['nome'];
+		$categoria = new Categoria();
+		$categoria->setId($categoria_array['id']);
+		$categoria->setNome($categoria_array['nome']);
 
 		array_push($categorias, $categoria);
 	}
