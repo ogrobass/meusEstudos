@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSSDesk</title>
+    <style type="text/css">
+      
+      body { background-color: #2574b0; }
+      
+      body {
+  font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 100px;
+  font-size: 13px;
+}
+
+.chique {
+  background: #fff;
+  margin: 0 auto;
+  width: 500px;
+  padding: 100px;
+  text-align: center;
+  /* border-radius */
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  /* box-shadow */
+  -webkit-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  -moz-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+}
+
+
+.elemento {
+    border: solid #000 5px;
+    position: relative;
+}
+
+.label-top-left, .label-bottom-right {
+  width: auto;
+  position: absolute;
+  line-height: 1em;
+  padding:5px;
+}
+
+.label-top-left {
+  background-color: #000;
+  color: #fff;
+  top: 0;
+  left: 0;
+}
+
+.label-bottom-right {
+  background-color: #000;
+  color: #fff;
+  right: 0;
+  bottom:0;
+}
+
+
+
+
+
+
+
+.fancy {
+    width: 500px;
+    margin: 20px auto;
+    padding: 50px;
+    border-width: 10px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.elem {
+    border: solid #6AC5AC 3px;
+    position: relative;
+}
+
+
+.label, .endlabel {
+    position: absolute;
+    background-color: #6AC5AC;
+    color: #414142;
+    line-height: 1em;
+}
+
+.label {
+    top: 0;
+    left: 0;
+    padding: 0 3px 3px 0;
+}
+
+.endlabel {
+    right: 0;
+    bottom: 0;
+    padding: 3px 0 0 3px;
+}
+
+
+
+    </style>
+  </head>
+  <body>
+    <div class="chique elemento">
+<span class="label-top-left">Usando o Label Top Left</span>
+Hello World!
+
+<span class="label-bottom-right">USando o Label Bottom Right</span>
+</div>
+
+
+
+
+<hr>
+
+
+
+
+<div class="fancy elem">
+  <span class="label">&lt;div class="fancy"&gt;</span>
+  <p>
+    E eu sou maior!
+  </p>
+  <span class="endlabel">&lt;/div&gt;</span>
+</div>
+  </body>
+</html>
